@@ -36,9 +36,9 @@ class WikiSql(text_problems.Text2TextProblem):
         QUERY_DIR = '{}train_query.txt'.format(data_dir)
 
         with open(QUESTIONS_DIR,'r') as f:
-            questions = [line[:-2] for line in f.readlines()]
+            questions = [line.replace('\n','') for line in f.readlines()]
         with open(QUERY_DIR,'r') as f:
-            query = [line[:-2] for line in f.readlines()]
+            query = [line.replace('\n','') for line in f.readlines()]
         for i in range(len(questions)):
             yield {
               "inputs" : questions[i],

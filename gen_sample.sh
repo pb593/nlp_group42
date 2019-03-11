@@ -1,6 +1,6 @@
 USR_DIR=/content/prob
 PROBLEM=wiki_sql
-DATA_DIR=/content
+DATA_DIR=/content/data
 TMP_DIR=/content/temp_dir
 mkdir -p $TMP_DIR
 
