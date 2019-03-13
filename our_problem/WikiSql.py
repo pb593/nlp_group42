@@ -53,4 +53,4 @@ class WikiSql(text_problems.Text2TextProblem):
         List of str tokens that will get vocab ids 2+ (0 and 1 are reserved for
         padding and end-of-string).
       """
-      return ['<HDR>', 'QTN']
+      return ["<HDR>", "<QTN>"]
