@@ -6,7 +6,7 @@ from tensor2tensor.data_generators import text_problems
 from tensor2tensor.utils import registry
 
 @registry.register_problem
-class WikiSql(text_problems.Text2TextProblem):
+class Spider(text_problems.Text2TextProblem):
 
     @property
     def approx_vocab_size(self):
