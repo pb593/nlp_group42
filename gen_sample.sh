@@ -1,7 +1,7 @@
-USR_DIR=/content/prob
+USR_DIR=our_problem
 PROBLEM=wiki_sql
-DATA_DIR=/content/data
-TMP_DIR=/content/temp_dir
+DATA_DIR=data/col_index
+TMP_DIR=tmp
 mkdir -p $TMP_DIR
 
 t2t-datagen \

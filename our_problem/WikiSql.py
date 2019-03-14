@@ -14,8 +14,8 @@ class WikiSql(text_problems.Text2TextProblem):
 
     @property
     def is_generate_per_split(self):
-        # generate_data will shard the data into TRAIN and EVAL for us.
-        return False
+        # generate_data will be called for every split (what is the point of #shards then?)
+        return True
 
     @property
     def dataset_splits(self):
@@ -27,13 +27,22 @@ class WikiSql(text_problems.Text2TextProblem):
         }, {
             "split": problem.DatasetSplit.EVAL,
             "shards": 1,
+        }, {
+            "split": problem.DatasetSplit.TEST,
+            "shards": 1,
         }]
 
     def generate_samples(self, data_dir, tmp_dir, dataset_split):
         if data_dir[-1] != '/':
             data_dir = data_dir+'/'
-        QUESTIONS_DIR = '{}train_question.txt'.format(data_dir)
-        QUERY_DIR = '{}train_query.txt'.format(data_dir)
+
+        # choose the file to process based on dataset_split
+        if dataset_split == problem.DatasetSplit.TRAIN or dataset_split == problem.DatasetSplit.EVAL:
+            QUESTIONS_DIR = '{}train_question.txt'.format(data_dir)
+            QUERY_DIR = '{}train_query.txt'.format(data_dir)
+        else: # problem.DatasetSplit.TEST
+            QUESTIONS_DIR = '{}test_question.txt'.format(data_dir)
+            QUERY_DIR = '{}test_query.txt'.format(data_dir)
 
         with open(QUESTIONS_DIR,'r') as f:
             questions = [line.replace('\n','') for line in f.readlines()]
