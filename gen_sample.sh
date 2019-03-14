@@ -1,6 +1,6 @@
 USR_DIR=our_problem
 PROBLEM=wiki_sql
-DATA_DIR=data/col_index
+DATA_DIR=data
 TMP_DIR=tmp
 mkdir -p $TMP_DIR
 

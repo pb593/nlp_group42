@@ -23,7 +23,7 @@ class WikiSql(text_problems.Text2TextProblem):
         # 10% evaluation data
         return [{
             "split": problem.DatasetSplit.TRAIN,
-            "shards": 9,
+            "shards": 8,
         }, {
             "split": problem.DatasetSplit.EVAL,
             "shards": 1,
@@ -37,9 +37,12 @@ class WikiSql(text_problems.Text2TextProblem):
             data_dir = data_dir+'/'
 
         # choose the file to process based on dataset_split
-        if dataset_split == problem.DatasetSplit.TRAIN or dataset_split == problem.DatasetSplit.EVAL:
+        if dataset_split == problem.DatasetSplit.TRAIN:
             QUESTIONS_DIR = '{}train_question.txt'.format(data_dir)
             QUERY_DIR = '{}train_query.txt'.format(data_dir)
+        elif dataset_split == problem.DatasetSplit.EVAL:
+            QUESTIONS_DIR = '{}dev_question.txt'.format(data_dir)
+            QUERY_DIR = '{}dev_query.txt'.format(data_dir)
         else: # problem.DatasetSplit.TEST
             QUESTIONS_DIR = '{}test_question.txt'.format(data_dir)
             QUERY_DIR = '{}test_query.txt'.format(data_dir)
