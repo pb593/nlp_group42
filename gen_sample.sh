@@ -1,6 +1,6 @@
 USR_DIR=our_problem
-PROBLEM=wiki_sql
-DATA_DIR=data
+PROBLEM=spider
+DATA_DIR=data_spider
 TMP_DIR=tmp
 mkdir -p $TMP_DIR
 

@@ -37,10 +37,10 @@ class Spider(text_problems.Text2TextProblem):
             data_dir = data_dir+'/'
 
         # choose the file to process based on dataset_split
-        if dataset_split == problem.DatasetSplit.TRAIN or dataset_split == problem.DatasetSplit.EVAL:
+        if dataset_split == problem.DatasetSplit.TRAIN:
             QUESTIONS_DIR = '{}train_spider_inputs.txt'.format(data_dir)
             QUERY_DIR = '{}train_spider_targets.txt'.format(data_dir)
-        else: # problem.DatasetSplit.TEST
+        else: # problem.DatasetSplit.TEST or problem.DatasetSplit.EVAL
             QUESTIONS_DIR = '{}dev_inputs.txt'.format(data_dir)
             QUERY_DIR = '{}dev_targets.txt'.format(data_dir)
 
